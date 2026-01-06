@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"ec.edu.espe.mongo.controller"},{"l":"ec.edu.espe.mongo.model"},{"l":"ec.edu.espe.mongo.view"}];updateSearchResults();
