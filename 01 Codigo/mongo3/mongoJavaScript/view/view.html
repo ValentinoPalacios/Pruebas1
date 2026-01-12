@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Store</title>
+</head>
+<body>
+
+<h3>Store</h3>
+
+<label>ID:</label>
+<input type="number" id="id"><br><br>
+
+<label>Name:</label>
+<input type="text" id="storeName"><br><br>
+
+<label>Price:</label>
+<input type="number" id="price"><br><br>
+
+<label>Price IVA:</label>
+<input type="number" id="priceIva" disabled><br><br>
+
+<button onclick="save()">Save</button>
+<button onclick="find()">Find</button>
+<button onclick="update()">Update</button>
+<button onclick="remove()">Delete</button>
+<button onclick="loadTable()">Load</button>
+
+<h3>Store List</h3>
+
+<table border="1" id="storeTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Price IVA</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+const api = "http://localhost:3000/store";
+
+const id = document.getElementById("id");
+const storeName = document.getElementById("storeName");
+const price = document.getElementById("price");
+const priceIva = document.getElementById("priceIva");
+const tableBody = document.querySelector("#storeTable tbody");
+
+/* ===== TABLA ===== */
+
+function clearTable() {
+  tableBody.innerHTML = "";
+}
+
+async function loadTable() {
+  clearTable();
+
+  const res = await fetch(api);
+  const stores = await res.json();
+
+  stores.forEach(store => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${store.id}</td>
+      <td>${store.name}</td>
+      <td>${store.price.toFixed(2)}</td>
+      <td>${store.priceIva.toFixed(2)}</td>
+    `;
+    tableBody.appendChild(row);
+  });
+}
+
+/* ===== CRUD ===== */
+
+async function save() {
+  const data = {
+    id: Number(id.value),
+    name: storeName.value,
+    price: Number(price.value)
+  };
+
+  const res = await fetch(api, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  const store = await res.json();
+  priceIva.value = store.priceIva;
+  alert("Store saved");
+  loadTable();
+}
+
+async function find() {
+  clearTable();
+
+  const res = await fetch(`${api}/${id.value}`);
+  const store = await res.json();
+
+  if (store.name) {
+    storeName.value = store.name;
+    price.value = store.price;
+    priceIva.value = store.priceIva;
+
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${store.id}</td>
+      <td>${store.name}</td>
+      <td>${store.price.toFixed(2)}</td>
+      <td>${store.priceIva.toFixed(2)}</td>
+    `;
+    tableBody.appendChild(row);
+  } else {
+    alert("Store not found");
+  }
+}
+
+async function update() {
+  await fetch(api, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: Number(id.value),
+      name: storeName.value,
+      price: Number(price.value)
+    })
+  });
+  alert("Store updated");
+  loadTable();
+}
+
+async function remove() {
+  await fetch(`${api}/${id.value}`, { method: "DELETE" });
+
+  id.value = "";
+  storeName.value = "";
+  price.value = "";
+  priceIva.value = "";
+
+  alert("Store deleted");
+  loadTable();
+}
+</script>
+
+</body>
+</html>
