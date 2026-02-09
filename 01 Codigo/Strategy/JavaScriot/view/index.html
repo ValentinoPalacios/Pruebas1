@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Strategy Pattern</title>
+  <style>
+    body { font-family: Arial; padding: 30px; }
+    input { width: 300px; }
+  </style>
+</head>
+<body>
+
+  <h2>Strategy Pattern - Sorting</h2>
+
+  <label>Numbers separated by commas:</label><br><br>
+  <input id="numbers" type="text"><br><br>
+
+  <button onclick="sendNumbers()">Accept</button>
+
+  <p id="result"></p>
+
+  <script>
+    async function sendNumbers() {
+      const input = document.getElementById("numbers").value;
+      const numbers = input.split(",").map(n => parseInt(n.trim()));
+
+      const res = await fetch("/api/numbers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ numbers })
+      });
+
+      const data = await res.json();
+
+      document.getElementById("result").innerText =
+        `Sorted: ${data.sorted} | Strategy: ${data.strategy}`;
+    }
+  </script>
+
+</body>
+</html>

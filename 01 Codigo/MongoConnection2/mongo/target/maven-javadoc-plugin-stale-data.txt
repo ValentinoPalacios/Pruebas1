@@ -1,0 +1,51 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+--no-fonts
+-classpath
+'C:/Users/EYS/.m2/repository/org/mongodb/mongodb-driver-sync/4.11.1/mongodb-driver-sync-4.11.1.jar;C:/Users/EYS/.m2/repository/org/mongodb/bson/4.11.1/bson-4.11.1.jar;C:/Users/EYS/.m2/repository/org/mongodb/mongodb-driver-core/4.11.1/mongodb-driver-core-4.11.1.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+24
+-sourcepath
+'C:/Users/EYS/Desktop/paulo__/Tercero/POO/Proyecto/mongo/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/EYS/Desktop/paulo__/Tercero/POO/Proyecto/mongo/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'mongo 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'mongo 1.0-SNAPSHOT API'
+ec.edu.espe.mongo.controller
+ec.edu.espe.mongo.model
+ec.edu.espe.mongo.view
+C:\Users\EYS\.m2\repository\org\mongodb\mongodb-driver-sync\4.11.1\mongodb-driver-sync-4.11.1.jar = 1765147283244
+C:\Users\EYS\.m2\repository\org\mongodb\bson\4.11.1\bson-4.11.1.jar = 1765147283542
+C:\Users\EYS\.m2\repository\org\mongodb\mongodb-driver-core\4.11.1\mongodb-driver-core-4.11.1.jar = 1765147283488
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\src\main\java = 1767661961743
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\allclasses-index.html = 1767677627105
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\allpackages-index.html = 1767677627118
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\element-list = 1767677626794
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\help-doc.html = 1767677627202
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\index-all.html = 1767677627172
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\index.html = 1767677627081
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\member-search-index.js = 1767677627132
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\module-search-index.js = 1767677627123
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\overview-summary.html = 1767677627195
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\overview-tree.html = 1767677627073
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\package-search-index.js = 1767677627126
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\search.html = 1767677627177
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\serialized-form.html = 1767677626956
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\tag-search-index.js = 1767677627135
+C:\Users\EYS\Desktop\paulo__\Tercero\POO\Proyecto\mongo\target\reports\apidocs\type-search-index.js = 1767677627128

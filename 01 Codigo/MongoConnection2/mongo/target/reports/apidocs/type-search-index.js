@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"ec.edu.espe.mongo.controller","l":"MongoConnection"},{"p":"ec.edu.espe.mongo.controller","l":"MongoCrud"},{"p":"ec.edu.espe.mongo.model","l":"Store"},{"p":"ec.edu.espe.mongo.view","l":"view"}];updateSearchResults();

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Store</title>
+</head>
+<body>
+
+<h3>Store</h3>
+
+<label>ID:</label>
+<input type="number" id="id"><br><br>
+
+<label>Name:</label>
+<input type="text" id="storeName"><br><br>
+
+<label>Price:</label>
+<input type="number" id="price"><br><br>
+
+<label>Price IVA:</label>
+<input type="number" id="priceIva" disabled><br><br>
+
+<button onclick="save()">Save</button>
+<button onclick="find()">Find</button>
+<button onclick="update()">Update</button>
+<button onclick="remove()">Delete</button>
+
+<script>
+const api = "http://localhost:3000/store";
+
+const id = document.getElementById("id");
+const storeName = document.getElementById("storeName");
+const price = document.getElementById("price");
+const priceIva = document.getElementById("priceIva");
+
+async function save() {
+  const data = {
+    id: Number(id.value),
+    name: storeName.value,
+    price: Number(price.value)
+  };
+
+  const res = await fetch(api, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  const store = await res.json();
+  priceIva.value = store.priceIva;
+  alert("Store guardado");
+}
+
+async function find() {
+  const res = await fetch(`${api}/${id.value}`);
+  const store = await res.json();
+
+  if (store.name) {
+    storeName.value = store.name;
+    price.value = store.price;
+    priceIva.value = store.priceIva;
+  } else {
+    alert("Store no encontrado");
+  }
+}
+
+async function update() {
+  await fetch(api, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: Number(id.value),
+      name: storeName.value,
+      price: Number(price.value)
+    })
+  });
+  alert("Store actualizado");
+}
+
+async function remove() {
+  await fetch(`${api}/${id.value}`, { method: "DELETE" });
+  id.value = "";
+  storeName.value = "";
+  price.value = "";
+  priceIva.value = "";
+  alert("Store eliminado");
+}
+</script>
+
+</body>
+</html>
